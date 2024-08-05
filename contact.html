@@ -250,14 +250,14 @@
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
+            var to_name = document.getElementById('name').value;
+            var from_name = document.getElementById('email').value;
             var subject = document.getElementById('subject').value;
             var message = document.getElementById('message').value;
 
             var templateParams = {
-                name: name,
-                email: email,
+                to_name: to_name,
+                from_name: from_name,
                 subject: subject,
                 message: message
             };
