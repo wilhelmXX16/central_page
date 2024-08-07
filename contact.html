@@ -167,7 +167,6 @@
                                     </div>
                                 </div>
                             </form>
-                            <div id="status"></div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +237,9 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
-
+         <!-- sweetalert Javascript -->
+         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+         <!-- Email Javascript -->
         <script type="text/javascript"
             src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
         </script>
@@ -264,9 +265,25 @@
 
             emailjs.send('service_yu2ynn3', 'template_jatjyu6', templateParams) // SERVICE_ID, TEMPLATE ID
                 .then(function(response) {
-                    document.getElementById('status').innerText = 'Mensaje enviado exitosamente.';
+                    Swal.fire({
+                        title: '¡Éxito!',
+                        text: 'Correo enviado con éxito',
+                        icon: 'success',
+                        timer: 3000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        confirmButtonText: 'Ok'
+                    });
                 }, function(error) {
-                    document.getElementById('status').innerText = 'Error al enviar el mensaje. Intente nuevamente más tarde.';
+                    Swal.fire({
+                        title: '¡Error!',
+                        text: 'Intente otra vez',
+                        icon: 'error',
+                        timer: 3000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        confirmButtonText: 'Ok'
+                    });
                     console.log('Error:', error);
                 });
         });
